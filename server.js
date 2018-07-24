@@ -1,28 +1,37 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 
 const app = express();
 app.use(bodyParser.json());
+app.use(cors());
 
 const database = {
 	users: [
 		{
 			id: '123',
 			name: 'john',
-			email: 'john@gmail.com',
 			password: 'cookies',
+			email: 'john@gmail.com',
 			entries: 0,
 			joined: new Date()
 		},
 		{
 			id: '124',
 			name: 'sally',
-			email: 'sally@gmail.com',
 			password: 'bananas',
+			email: 'sally@gmail.com',
 			entries: 0,
 			joined: new Date()
 		}
+	],
+	login: [
+	{
+		id: '987',
+		hash: '',
+		email: 'john@gmail.com'
+	}
 	]
 }
 
@@ -88,9 +97,20 @@ app.put('/image', (req, res) => {
 
 
 
-app.listen(3000, () => {
+app.listen(4000, () => {
 	console.log('app is running on port 3000');
 })
+
+
+
+
+
+
+
+
+
+
+
 
 
 
