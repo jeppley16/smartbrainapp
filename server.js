@@ -47,6 +47,9 @@ app.get('/profile/:id', profile.handleProfile(db))
 //Image User Route : every time submit image, increase entries
 app.put('/image', image.handleImage(db))
 
+//API Call put in backend for security purposes
+app.post('/imageurl', (req, res) => { image.handleApiCall(req, res)} )
+
 
 
 app.listen(4000, () => {
